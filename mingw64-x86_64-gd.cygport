@@ -1,0 +1,32 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-gd"
+VERSION=2.1.1
+RELEASE=2
+CATEGORY="Devel"
+SUMMARY="Dynamic image creation library for Win64 toolchain"
+DESCRIPTION="GD is an open source code library for the dynamic creation of images by programmers.
+GD creates PNG, JPEG and GIF images, among other formats. GD is commonly used to
+generate charts, graphics, thumbnails, and most anything else, on the fly. While not
+restricted to use on the web, the most common applications of GD involve web site development."
+HOMEPAGE="http://libgd.bitbucket.org/"
+SRC_URI="https://bitbucket.org/libgd/gd-libgd/downloads/libgd-${VERSION}.tar.xz"
+SRC_DIR="libgd-${VERSION}"
+PATCH_URI="http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-heap-overflow.patch"
+
+src_compile() {
+	cd ${S}
+#	cygautoreconf
+	lndirs
+	cd ${B}
+	cygconf
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall bin_PROGRAMS= bin_SCRIPTS=
+}
+
+KEEP_LA_FILES=none
