@@ -3,7 +3,7 @@ inherit cross
 
 NAME="mingw64-x86_64-gd"
 VERSION=2.1.1
-RELEASE=2
+RELEASE=3
 CATEGORY="Devel"
 SUMMARY="Dynamic image creation library for Win64 toolchain"
 DESCRIPTION="GD is an open source code library for the dynamic creation of images by programmers.
@@ -13,7 +13,15 @@ restricted to use on the web, the most common applications of GD involve web sit
 HOMEPAGE="http://libgd.bitbucket.org/"
 SRC_URI="https://bitbucket.org/libgd/gd-libgd/downloads/libgd-${VERSION}.tar.xz"
 SRC_DIR="libgd-${VERSION}"
-PATCH_URI="http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-heap-overflow.patch"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-heap-overflow.patch
+	http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-2.1.1-gdImagreScaleTwoPass-leak.patch?h=f23
+	http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-2.1.1-xbm-large-names-overflow.patch?h=f23
+	http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-2.1.1-CVE-2015-8874.patch?h=f23
+	http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-2.1.1-CVE-2016-5766.patch?h=f23
+"
+
+DIFF_EXCLUDES="Makefile.in"
 
 src_compile() {
 	cd ${S}
