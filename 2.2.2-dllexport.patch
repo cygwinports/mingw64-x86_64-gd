@@ -1,0 +1,38 @@
+--- origsrc/libgd-2.2.2/src/gd_webp.c	2016-06-19 03:41:13.000000000 -0500
++++ src/libgd-2.2.2/src/gd_webp.c	2016-07-08 17:08:23.685945900 -0500
+@@ -16,7 +16,7 @@
+ 
+ #define GD_WEBP_ALLOC_STEP (4*1024)
+ 
+-gdImagePtr gdImageCreateFromWebp (FILE * inFile)
++BGD_DECLARE(gdImagePtr) gdImageCreateFromWebp (FILE * inFile)
+ {
+ 	gdImagePtr im;
+ 	gdIOCtx *in = gdNewFileCtx(inFile);
+@@ -30,7 +30,7 @@ gdImagePtr gdImageCreateFromWebp (FILE *
+ }
+ 
+ 
+-gdImagePtr gdImageCreateFromWebpPtr (int size, void *data)
++BGD_DECLARE(gdImagePtr) gdImageCreateFromWebpPtr (int size, void *data)
+ {
+ 	gdImagePtr im;
+ 	gdIOCtx *in = gdNewDynamicCtxEx(size, data, 0);
+@@ -41,7 +41,7 @@ gdImagePtr gdImageCreateFromWebpPtr (int
+ 	return im;
+ }
+ 
+-gdImagePtr gdImageCreateFromWebpCtx (gdIOCtx * infile)
++BGD_DECLARE(gdImagePtr) gdImageCreateFromWebpCtx (gdIOCtx * infile)
+ {
+ 	int    width, height;
+ 	uint8_t   *filedata = NULL;
+@@ -105,7 +105,7 @@ gdImagePtr gdImageCreateFromWebpCtx (gdI
+ 	return im;
+ }
+ 
+-void gdImageWebpCtx (gdImagePtr im, gdIOCtx * outfile, int quantization)
++BGD_DECLARE(void) gdImageWebpCtx (gdImagePtr im, gdIOCtx * outfile, int quantization)
+ {
+ 	uint8_t *argb;
+ 	int x, y;
