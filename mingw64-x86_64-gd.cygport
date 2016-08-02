@@ -2,7 +2,7 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-gd"
-VERSION=2.2.2
+VERSION=2.2.3
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Dynamic image creation library for Win64 toolchain"
@@ -14,7 +14,7 @@ HOMEPAGE="http://libgd.org/"
 SRC_URI="https://github.com/libgd/libgd/releases/download/gd-${VERSION}/libgd-${VERSION}.tar.xz"
 SRC_DIR="libgd-${VERSION}"
 PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-2.2.1-initialize-full_filename.patch
+	http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-2.2.3-tests.patch
 	2.2.2-dllexport.patch
 "
 
