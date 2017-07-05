@@ -3,7 +3,7 @@ inherit cross
 
 NAME="mingw64-x86_64-gd"
 VERSION=2.2.4
-RELEASE=1
+RELEASE=2
 CATEGORY="Devel"
 SUMMARY="Dynamic image creation library for Win64 toolchain"
 DESCRIPTION="GD is an open source code library for the dynamic creation of images by programmers.
