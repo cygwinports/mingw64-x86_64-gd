@@ -2,8 +2,8 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross
 
 NAME="mingw64-x86_64-gd"
-VERSION=2.2.4
-RELEASE=2
+VERSION=2.2.5
+RELEASE=1
 CATEGORY="Devel"
 SUMMARY="Dynamic image creation library for Win64 toolchain"
 DESCRIPTION="GD is an open source code library for the dynamic creation of images by programmers.
@@ -13,9 +13,6 @@ restricted to use on the web, the most common applications of GD involve web sit
 HOMEPAGE="http://libgd.org/"
 SRC_URI="https://github.com/libgd/libgd/releases/download/gd-${VERSION}/libgd-${VERSION}.tar.xz"
 SRC_DIR="libgd-${VERSION}"
-PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/rpms/gd.git/plain/gd-2.2.3-tests.patch
-"
 
 DIFF_EXCLUDES="Makefile.in"
 
@@ -32,5 +29,3 @@ src_install() {
 	cd ${B}
 	cyginstall bin_PROGRAMS= bin_SCRIPTS=
 }
-
-KEEP_LA_FILES=none
